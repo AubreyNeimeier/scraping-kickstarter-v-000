@@ -17,12 +17,13 @@ def create_project_hash
   #this is how we read the html from a file saved locally. no need to use open method here
   kickstarter = Nokogiri::HTML(html)
   projects = {}
-  
+
   kickstarter.css("li.project.grid_4").each do |project|
     #we define a title for each project
     title = project.css("h2.bbcard_name strong a").text
     #we convert the title to a symbol and set is as the key for the project
     projects[title.to_s] = {
+      #we assign the attributes as key, value pairs within a hash (nested hash)
       :image_link => project.css("div.project-thumbnail a img").attribute("src").value,
       :description => project.css("p.bbcard_blurb").text,
       :location => project.css("span.location-name").text,
