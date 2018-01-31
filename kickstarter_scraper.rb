@@ -14,6 +14,7 @@ def create_project_hash
 
   # This just opens a file and reads it into a variable
   html = File.read('fixtures/kickstarter.html')
+  #this is how we read the html from a file saved locally. no need to use open method here
   kickstarter = Nokogiri::HTML(html)
 
   projects = {}
