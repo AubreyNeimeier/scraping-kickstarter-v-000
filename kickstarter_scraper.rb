@@ -24,6 +24,7 @@ def create_project_hash
     #we convert the title to a symbol and set is as the key for the project
     projects[title.to_s] = {
       #we assign the attributes as key, value pairs within a hash (nested hash)
+      #an img link has an attibute titled (src) that we extract the value from
       :image_link => project.css("div.project-thumbnail a img").attribute("src").value,
       :description => project.css("p.bbcard_blurb").text,
       :location => project.css("span.location-name").text,
